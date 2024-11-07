@@ -1,0 +1,116 @@
+F:\Projects\ТехнологииразрабПО\Bookstore\Bookstore\bin\Debug\net6.0-windows\Bookstore.exe
+F:\Projects\ТехнологииразрабПО\Bookstore\Bookstore\bin\Debug\net6.0-windows\Bookstore.deps.json
+F:\Projects\ТехнологииразрабПО\Bookstore\Bookstore\bin\Debug\net6.0-windows\Bookstore.runtimeconfig.json
+F:\Projects\ТехнологииразрабПО\Bookstore\Bookstore\bin\Debug\net6.0-windows\Bookstore.dll
+F:\Projects\ТехнологииразрабПО\Bookstore\Bookstore\bin\Debug\net6.0-windows\Bookstore.pdb
+F:\Projects\ТехнологииразрабПО\Bookstore\Bookstore\bin\Debug\net6.0-windows\System.Data.OleDb.dll
+F:\Projects\ТехнологииразрабПО\Bookstore\Bookstore\bin\Debug\net6.0-windows\runtimes\win\lib\net6.0\System.Data.OleDb.dll
+F:\Projects\ТехнологииразрабПО\Bookstore\Bookstore\obj\Debug\net6.0-windows\Bookstore.csproj.AssemblyReference.cache
+F:\Projects\ТехнологииразрабПО\Bookstore\Bookstore\obj\Debug\net6.0-windows\Bookstore.Form1.resources
+F:\Projects\ТехнологииразрабПО\Bookstore\Bookstore\obj\Debug\net6.0-windows\Bookstore.csproj.GenerateResource.cache
+F:\Projects\ТехнологииразрабПО\Bookstore\Bookstore\obj\Debug\net6.0-windows\Bookstore.GeneratedMSBuildEditorConfig.editorconfig
+F:\Projects\ТехнологииразрабПО\Bookstore\Bookstore\obj\Debug\net6.0-windows\Bookstore.AssemblyInfoInputs.cache
+F:\Projects\ТехнологииразрабПО\Bookstore\Bookstore\obj\Debug\net6.0-windows\Bookstore.AssemblyInfo.cs
+F:\Projects\ТехнологииразрабПО\Bookstore\Bookstore\obj\Debug\net6.0-windows\Bookstore.csproj.CoreCompileInputs.cache
+F:\Projects\ТехнологииразрабПО\Bookstore\Bookstore\obj\Debug\net6.0-windows\Bookstore.csproj.CopyComplete
+F:\Projects\ТехнологииразрабПО\Bookstore\Bookstore\obj\Debug\net6.0-windows\Bookstore.dll
+F:\Projects\ТехнологииразрабПО\Bookstore\Bookstore\obj\Debug\net6.0-windows\refint\Bookstore.dll
+F:\Projects\ТехнологииразрабПО\Bookstore\Bookstore\obj\Debug\net6.0-windows\Bookstore.pdb
+F:\Projects\ТехнологииразрабПО\Bookstore\Bookstore\obj\Debug\net6.0-windows\Bookstore.genruntimeconfig.cache
+F:\Projects\ТехнологииразрабПО\Bookstore\Bookstore\obj\Debug\net6.0-windows\ref\Bookstore.dll
+D:\Pojects\РазрабПО\Bookstore\Bookstore\bin\Debug\net6.0-windows\Bookstore.exe
+D:\Pojects\РазрабПО\Bookstore\Bookstore\bin\Debug\net6.0-windows\Bookstore.deps.json
+D:\Pojects\РазрабПО\Bookstore\Bookstore\bin\Debug\net6.0-windows\Bookstore.runtimeconfig.json
+D:\Pojects\РазрабПО\Bookstore\Bookstore\bin\Debug\net6.0-windows\Bookstore.dll
+D:\Pojects\РазрабПО\Bookstore\Bookstore\bin\Debug\net6.0-windows\Bookstore.pdb
+D:\Pojects\РазрабПО\Bookstore\Bookstore\bin\Debug\net6.0-windows\System.Data.OleDb.dll
+D:\Pojects\РазрабПО\Bookstore\Bookstore\bin\Debug\net6.0-windows\runtimes\win\lib\net6.0\System.Data.OleDb.dll
+D:\Pojects\РазрабПО\Bookstore\Bookstore\obj\Debug\net6.0-windows\Bookstore.csproj.AssemblyReference.cache
+D:\Pojects\РазрабПО\Bookstore\Bookstore\obj\Debug\net6.0-windows\Bookstore.Form1.resources
+D:\Pojects\РазрабПО\Bookstore\Bookstore\obj\Debug\net6.0-windows\Bookstore.csproj.GenerateResource.cache
+D:\Pojects\РазрабПО\Bookstore\Bookstore\obj\Debug\net6.0-windows\Bookstore.GeneratedMSBuildEditorConfig.editorconfig
+D:\Pojects\РазрабПО\Bookstore\Bookstore\obj\Debug\net6.0-windows\Bookstore.AssemblyInfoInputs.cache
+D:\Pojects\РазрабПО\Bookstore\Bookstore\obj\Debug\net6.0-windows\Bookstore.AssemblyInfo.cs
+D:\Pojects\РазрабПО\Bookstore\Bookstore\obj\Debug\net6.0-windows\Bookstore.csproj.CoreCompileInputs.cache
+D:\Pojects\РазрабПО\Bookstore\Bookstore\obj\Debug\net6.0-windows\Bookstore.csproj.CopyComplete
+D:\Pojects\РазрабПО\Bookstore\Bookstore\obj\Debug\net6.0-windows\Bookstore.dll
+D:\Pojects\РазрабПО\Bookstore\Bookstore\obj\Debug\net6.0-windows\refint\Bookstore.dll
+D:\Pojects\РазрабПО\Bookstore\Bookstore\obj\Debug\net6.0-windows\Bookstore.pdb
+D:\Pojects\РазрабПО\Bookstore\Bookstore\obj\Debug\net6.0-windows\Bookstore.genruntimeconfig.cache
+D:\Pojects\РазрабПО\Bookstore\Bookstore\obj\Debug\net6.0-windows\ref\Bookstore.dll
+D:\Pojects\РазрабПО\Bookstore\Bookstore\obj\Debug\net6.0-windows\Bookstore.Reg.resources
+D:\Pojects\РазрабПО\Bookstore\Bookstore\obj\Debug\net6.0-windows\Bookstore.Properties.Resources.resources
+D:\Pojects\РазрабПО\Bookstore\Bookstore\obj\Debug\net6.0-windows\Bookstore.LogIn.resources
+F:\Projects\ТехнологииразрабПО\Bookstore (1)\Bookstore\bin\Debug\net6.0-windows\Bookstore.exe
+F:\Projects\ТехнологииразрабПО\Bookstore (1)\Bookstore\bin\Debug\net6.0-windows\Bookstore.deps.json
+F:\Projects\ТехнологииразрабПО\Bookstore (1)\Bookstore\bin\Debug\net6.0-windows\Bookstore.runtimeconfig.json
+F:\Projects\ТехнологииразрабПО\Bookstore (1)\Bookstore\bin\Debug\net6.0-windows\Bookstore.dll
+F:\Projects\ТехнологииразрабПО\Bookstore (1)\Bookstore\bin\Debug\net6.0-windows\Bookstore.pdb
+F:\Projects\ТехнологииразрабПО\Bookstore (1)\Bookstore\bin\Debug\net6.0-windows\System.Data.OleDb.dll
+F:\Projects\ТехнологииразрабПО\Bookstore (1)\Bookstore\bin\Debug\net6.0-windows\runtimes\win\lib\net6.0\System.Data.OleDb.dll
+F:\Projects\ТехнологииразрабПО\Bookstore (1)\Bookstore\obj\Debug\net6.0-windows\Bookstore.csproj.AssemblyReference.cache
+F:\Projects\ТехнологииразрабПО\Bookstore (1)\Bookstore\obj\Debug\net6.0-windows\Bookstore.Form1.resources
+F:\Projects\ТехнологииразрабПО\Bookstore (1)\Bookstore\obj\Debug\net6.0-windows\Bookstore.LogIn.resources
+F:\Projects\ТехнологииразрабПО\Bookstore (1)\Bookstore\obj\Debug\net6.0-windows\Bookstore.Properties.Resources.resources
+F:\Projects\ТехнологииразрабПО\Bookstore (1)\Bookstore\obj\Debug\net6.0-windows\Bookstore.Reg.resources
+F:\Projects\ТехнологииразрабПО\Bookstore (1)\Bookstore\obj\Debug\net6.0-windows\Bookstore.SubscrubesForm.resources
+F:\Projects\ТехнологииразрабПО\Bookstore (1)\Bookstore\obj\Debug\net6.0-windows\Bookstore.csproj.GenerateResource.cache
+F:\Projects\ТехнологииразрабПО\Bookstore (1)\Bookstore\obj\Debug\net6.0-windows\Bookstore.GeneratedMSBuildEditorConfig.editorconfig
+F:\Projects\ТехнологииразрабПО\Bookstore (1)\Bookstore\obj\Debug\net6.0-windows\Bookstore.AssemblyInfoInputs.cache
+F:\Projects\ТехнологииразрабПО\Bookstore (1)\Bookstore\obj\Debug\net6.0-windows\Bookstore.AssemblyInfo.cs
+F:\Projects\ТехнологииразрабПО\Bookstore (1)\Bookstore\obj\Debug\net6.0-windows\Bookstore.csproj.CoreCompileInputs.cache
+F:\Projects\ТехнологииразрабПО\Bookstore (1)\Bookstore\obj\Debug\net6.0-windows\Bookstore.csproj.CopyComplete
+F:\Projects\ТехнологииразрабПО\Bookstore (1)\Bookstore\obj\Debug\net6.0-windows\Bookstore.dll
+F:\Projects\ТехнологииразрабПО\Bookstore (1)\Bookstore\obj\Debug\net6.0-windows\refint\Bookstore.dll
+F:\Projects\ТехнологииразрабПО\Bookstore (1)\Bookstore\obj\Debug\net6.0-windows\Bookstore.pdb
+F:\Projects\ТехнологииразрабПО\Bookstore (1)\Bookstore\obj\Debug\net6.0-windows\Bookstore.genruntimeconfig.cache
+F:\Projects\ТехнологииразрабПО\Bookstore (1)\Bookstore\obj\Debug\net6.0-windows\ref\Bookstore.dll
+F:\Projects\ТехнологииразрабПО\Bookstore (1)\Bookstore\obj\Debug\net6.0-windows\Bookstore.Cart.resources
+D:\Pojects\РазрабПО\Bookstore (1) (1)\Bookstore\bin\Debug\net6.0-windows\Bookstore.exe
+D:\Pojects\РазрабПО\Bookstore (1) (1)\Bookstore\bin\Debug\net6.0-windows\Bookstore.deps.json
+D:\Pojects\РазрабПО\Bookstore (1) (1)\Bookstore\bin\Debug\net6.0-windows\Bookstore.runtimeconfig.json
+D:\Pojects\РазрабПО\Bookstore (1) (1)\Bookstore\bin\Debug\net6.0-windows\Bookstore.dll
+D:\Pojects\РазрабПО\Bookstore (1) (1)\Bookstore\bin\Debug\net6.0-windows\Bookstore.pdb
+D:\Pojects\РазрабПО\Bookstore (1) (1)\Bookstore\bin\Debug\net6.0-windows\System.Data.OleDb.dll
+D:\Pojects\РазрабПО\Bookstore (1) (1)\Bookstore\bin\Debug\net6.0-windows\runtimes\win\lib\net6.0\System.Data.OleDb.dll
+D:\Pojects\РазрабПО\Bookstore (1) (1)\Bookstore\obj\Debug\net6.0-windows\Bookstore.csproj.AssemblyReference.cache
+D:\Pojects\РазрабПО\Bookstore (1) (1)\Bookstore\obj\Debug\net6.0-windows\Bookstore.Form1.resources
+D:\Pojects\РазрабПО\Bookstore (1) (1)\Bookstore\obj\Debug\net6.0-windows\Bookstore.LogIn.resources
+D:\Pojects\РазрабПО\Bookstore (1) (1)\Bookstore\obj\Debug\net6.0-windows\Bookstore.Properties.Resources.resources
+D:\Pojects\РазрабПО\Bookstore (1) (1)\Bookstore\obj\Debug\net6.0-windows\Bookstore.Reg.resources
+D:\Pojects\РазрабПО\Bookstore (1) (1)\Bookstore\obj\Debug\net6.0-windows\Bookstore.SubscrubesForm.resources
+D:\Pojects\РазрабПО\Bookstore (1) (1)\Bookstore\obj\Debug\net6.0-windows\Bookstore.csproj.GenerateResource.cache
+D:\Pojects\РазрабПО\Bookstore (1) (1)\Bookstore\obj\Debug\net6.0-windows\Bookstore.GeneratedMSBuildEditorConfig.editorconfig
+D:\Pojects\РазрабПО\Bookstore (1) (1)\Bookstore\obj\Debug\net6.0-windows\Bookstore.AssemblyInfoInputs.cache
+D:\Pojects\РазрабПО\Bookstore (1) (1)\Bookstore\obj\Debug\net6.0-windows\Bookstore.AssemblyInfo.cs
+D:\Pojects\РазрабПО\Bookstore (1) (1)\Bookstore\obj\Debug\net6.0-windows\Bookstore.csproj.CoreCompileInputs.cache
+D:\Pojects\РазрабПО\Bookstore (1) (1)\Bookstore\obj\Debug\net6.0-windows\Bookstore.csproj.CopyComplete
+D:\Pojects\РазрабПО\Bookstore (1) (1)\Bookstore\obj\Debug\net6.0-windows\Bookstore.dll
+D:\Pojects\РазрабПО\Bookstore (1) (1)\Bookstore\obj\Debug\net6.0-windows\refint\Bookstore.dll
+D:\Pojects\РазрабПО\Bookstore (1) (1)\Bookstore\obj\Debug\net6.0-windows\Bookstore.pdb
+D:\Pojects\РазрабПО\Bookstore (1) (1)\Bookstore\obj\Debug\net6.0-windows\Bookstore.genruntimeconfig.cache
+D:\Pojects\РазрабПО\Bookstore (1) (1)\Bookstore\obj\Debug\net6.0-windows\ref\Bookstore.dll
+F:\Projects\C#Net\Bookstore\Bookstore\bin\Debug\net6.0-windows\Bookstore.exe
+F:\Projects\C#Net\Bookstore\Bookstore\bin\Debug\net6.0-windows\Bookstore.deps.json
+F:\Projects\C#Net\Bookstore\Bookstore\bin\Debug\net6.0-windows\Bookstore.runtimeconfig.json
+F:\Projects\C#Net\Bookstore\Bookstore\bin\Debug\net6.0-windows\Bookstore.dll
+F:\Projects\C#Net\Bookstore\Bookstore\bin\Debug\net6.0-windows\Bookstore.pdb
+F:\Projects\C#Net\Bookstore\Bookstore\bin\Debug\net6.0-windows\System.Data.OleDb.dll
+F:\Projects\C#Net\Bookstore\Bookstore\bin\Debug\net6.0-windows\runtimes\win\lib\net6.0\System.Data.OleDb.dll
+F:\Projects\C#Net\Bookstore\Bookstore\obj\Debug\net6.0-windows\Bookstore.csproj.AssemblyReference.cache
+F:\Projects\C#Net\Bookstore\Bookstore\obj\Debug\net6.0-windows\Bookstore.Form1.resources
+F:\Projects\C#Net\Bookstore\Bookstore\obj\Debug\net6.0-windows\Bookstore.LogIn.resources
+F:\Projects\C#Net\Bookstore\Bookstore\obj\Debug\net6.0-windows\Bookstore.Properties.Resources.resources
+F:\Projects\C#Net\Bookstore\Bookstore\obj\Debug\net6.0-windows\Bookstore.Reg.resources
+F:\Projects\C#Net\Bookstore\Bookstore\obj\Debug\net6.0-windows\Bookstore.SubscrubesForm.resources
+F:\Projects\C#Net\Bookstore\Bookstore\obj\Debug\net6.0-windows\Bookstore.csproj.GenerateResource.cache
+F:\Projects\C#Net\Bookstore\Bookstore\obj\Debug\net6.0-windows\Bookstore.GeneratedMSBuildEditorConfig.editorconfig
+F:\Projects\C#Net\Bookstore\Bookstore\obj\Debug\net6.0-windows\Bookstore.AssemblyInfoInputs.cache
+F:\Projects\C#Net\Bookstore\Bookstore\obj\Debug\net6.0-windows\Bookstore.AssemblyInfo.cs
+F:\Projects\C#Net\Bookstore\Bookstore\obj\Debug\net6.0-windows\Bookstore.csproj.CoreCompileInputs.cache
+F:\Projects\C#Net\Bookstore\Bookstore\obj\Debug\net6.0-windows\Bookstore.csproj.Up2Date
+F:\Projects\C#Net\Bookstore\Bookstore\obj\Debug\net6.0-windows\Bookstore.dll
+F:\Projects\C#Net\Bookstore\Bookstore\obj\Debug\net6.0-windows\refint\Bookstore.dll
+F:\Projects\C#Net\Bookstore\Bookstore\obj\Debug\net6.0-windows\Bookstore.pdb
+F:\Projects\C#Net\Bookstore\Bookstore\obj\Debug\net6.0-windows\Bookstore.genruntimeconfig.cache
+F:\Projects\C#Net\Bookstore\Bookstore\obj\Debug\net6.0-windows\ref\Bookstore.dll
