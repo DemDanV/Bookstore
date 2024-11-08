@@ -1,6 +1,6 @@
 ﻿namespace Bookstore
 {
-    partial class LogIn
+    partial class LogInPage
     {
         /// <summary>
         /// Required designer variable.

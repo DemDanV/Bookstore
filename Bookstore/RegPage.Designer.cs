@@ -1,6 +1,6 @@
 ﻿namespace Bookstore
 {
-    partial class Reg
+    partial class RegPage
     {
         /// <summary>
         /// Required designer variable.

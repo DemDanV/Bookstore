@@ -3,18 +3,18 @@ using System.Data.OleDb;
 
 namespace Bookstore
 {
-    public partial class Form1 : Form
+    public partial class MainPage : Form
     {
         DataTable shop = new DataTable();
         DataTable subs = new DataTable();
         DataTable cart = new DataTable();
 
-        public Form1()
+        public MainPage()
         {
             InitializeComponent();
             SetupLayout();
 
-            AcoountInfo.AccountChanged += reloadAccountInfo;
+            AccountInfo.AccountChanged += OnAccountChanged;
 
             RefreshShopDataTable();
             LoadAllFrom(shop);
@@ -49,47 +49,47 @@ namespace Bookstore
 
         private void RefreshShopDataTable()
         {
-            shop = new DataTable();
-            OleDbConnection DBConnection = new OleDbConnection(
-                @"Provider=Microsoft.ACE.OLEDB.12.0;
-                Data Source = " + Environment.CurrentDirectory + "\\Books.accdb"
-                );
-
-            OleDbCommand cmd = new OleDbCommand("select * from tbl_data", DBConnection);
-
-            OleDbDataAdapter da = new OleDbDataAdapter(cmd);
-
-            da.Fill(shop);
-
+            shop = ExecuteQuery("SELECT * FROM tbl_data");
             SetupSelectedRowUI();
         }
 
-        OleDbConnection DBConnection = new OleDbConnection(
-        @"Provider=Microsoft.ACE.OLEDB.12.0;
-                        Data Source=" + Environment.CurrentDirectory + "\\Books.accdb"
-        );
-        private void FillTableFromDB(string query, DataTable fill)
+        private DataTable ExecuteQuery(string query)
         {
-            OleDbCommand sqlcmd = new OleDbCommand(query, DBConnection);
-            OleDbDataAdapter adapter = new OleDbDataAdapter(sqlcmd);
-            adapter.Fill(fill);
+            DataTable table = new DataTable();
+
+            using (OleDbConnection connection = new OleDbConnection(
+                @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + Environment.CurrentDirectory + "\\Books.accdb"))
+            {
+                using (OleDbCommand command = new OleDbCommand(query, connection))
+                {
+                    OleDbDataAdapter adapter = new OleDbDataAdapter(command);
+                    adapter.Fill(table);
+                }
+            }
+
+            return table;
         }
 
         private bool MakeChangesInDB(string query)
         {
-            OleDbCommand sqlcmd = new OleDbCommand(query, DBConnection);
-            DBConnection.Open();
-            bool needToRefreshData = sqlcmd.ExecuteNonQuery() > 0;
-            DBConnection.Close();
-            return needToRefreshData;
+            using (OleDbConnection DBConnection = new OleDbConnection(
+                @"Provider=Microsoft.ACE.OLEDB.12.0;
+                Data Source=" + Environment.CurrentDirectory + "\\Books.accdb"))
+            {
+                using (OleDbCommand sqlcmd = new OleDbCommand(query, DBConnection))
+                {
+                    DBConnection.Open();
+                    bool needToRefreshData = sqlcmd.ExecuteNonQuery() > 0;
+                    DBConnection.Close();
+                    return needToRefreshData;
+                }
+            }
         }
 
         private void RefreshSubsDataTable()
         {
-            DataTable subsID = new DataTable();
-
-            string query = "SELECT ID_Books FROM clientsSubs_table WHERE [ID_Client] = " + AcoountInfo.ID;
-            FillTableFromDB(query, subsID);
+            string query = "SELECT ID_Books FROM clientsSubs_table WHERE [ID_Client] = " + AccountInfo.ID;
+            DataTable subsID = ExecuteQuery(query);
 
             subs = new DataTable();
             if (subsID.Rows.Count > 0)
@@ -97,7 +97,7 @@ namespace Bookstore
                 foreach (DataRow sub in subsID.Rows)
                 {
                     query = "SELECT * FROM tbl_data WHERE [ID] = " + sub[0];
-                    FillTableFromDB(query, subs);
+                    subs.Merge(ExecuteQuery(query));
                 }
             }
 
@@ -106,18 +106,18 @@ namespace Bookstore
 
         private void RefreshCartDataTable()
         {
-            DataTable booksID = new DataTable();
-            string query = "SELECT ID, ID_Book, Order_Amount FROM clientsCart_table WHERE [ID_Client] = " + AcoountInfo.ID;
-            FillTableFromDB(query, booksID);
+            string query = "SELECT ID, ID_Book, Order_Amount FROM clientsCart_table WHERE [ID_Client] = " + AccountInfo.ID;
+            DataTable booksID = ExecuteQuery(query);
 
             cart = new DataTable();
 
             if (booksID.Rows.Count > 0)
             {
-                foreach (DataRow b in booksID.Rows)
+                foreach (DataRow row in booksID.Rows)
                 {
-                    query = "SELECT * FROM tbl_data WHERE [ID] = " + b["ID_Book"];
-                    FillTableFromDB(query, cart);
+                    query = "SELECT * FROM tbl_data WHERE [ID] = " + row["ID_Book"];
+                    DataTable bookData = ExecuteQuery(query);
+                    cart.Merge(bookData);
                 }
                 cart.Columns["ID"].ColumnName = "ID_Book";
 
@@ -145,7 +145,7 @@ namespace Bookstore
         private void AddToSubDataTable(int ID_Book)
         {
             DataRow row = shop.Select("ID = " + ID_Book)[0];
-            object[] toAdd = new object[]{ row.ItemArray[0], row.ItemArray[1], row.ItemArray[2], row.ItemArray[3], row.ItemArray[4], row.ItemArray[5], row.ItemArray[6] };
+            object[] toAdd = new object[] { row.ItemArray[0], row.ItemArray[1], row.ItemArray[2], row.ItemArray[3], row.ItemArray[4], row.ItemArray[5], row.ItemArray[6] };
             subs.Rows.Add(toAdd);
 
             SetupSelectedRowUI();
@@ -165,8 +165,8 @@ namespace Bookstore
             addToCard_button.Enabled = false;
 
             dataGridView1.DataSource = from;
-            if(from.Rows.Count>0)
-            dataGridView1.Columns["ID"].Visible = false;
+            if (from.Rows.Count > 0)
+                dataGridView1.Columns["ID"].Visible = false;
         }
 
 
@@ -185,35 +185,25 @@ namespace Bookstore
 
         private void Search()
         {
-            BindingSource source1 = new BindingSource();
-            source1.DataSource = dataGridView1.DataSource;
-            dataGridView1.DataSource = source1;
-
-
-            if (search_textBox.Text.Length == 0)
+            // Получаем текст из текстового поля и проверяем, есть ли запрос
+            string searchText = search_textBox.Text.Trim();
+            if (string.IsNullOrEmpty(searchText))
             {
-                source1.RemoveFilter();
-
+                // Если текст пустой, очищаем фильтр
+                shop.DefaultView.RowFilter = string.Empty;
                 return;
             }
 
-            string[] words = search_textBox.Text.Split(' ');
+            // Ограничиваем количество слов до 20
+            string[] words = searchText.Split(' ').Take(20).ToArray();
 
-            if (words.Length > 20)
-            {
-                string[] tmp = new string[20];
-                words.CopyTo(tmp, 0);
-                words = tmp;
-                MessageBox.Show("The request is too large. It was cut down to 20 words");
-            }
+            // Создаем строку фильтра для полей Name и Author
+            var filterExpression = string.Join(" OR ", words.Select(word =>
+                $"Name LIKE '%{word}%' OR Author LIKE '%{word}%'"
+            ));
 
-            string megaString = "";
-            foreach (string word in words)
-            {
-                megaString += "Name LIKE '%" + word + "%' OR Author LIKE '%" + word + "%' OR ";
-            }
-            megaString = megaString.Remove(megaString.Length - 4);
-            source1.Filter = megaString;
+            // Применяем фильтр к DefaultView DataTable
+            shop.DefaultView.RowFilter = filterExpression;
         }
 
 
@@ -228,24 +218,22 @@ namespace Bookstore
             Program.StartRegForm();
         }
 
-        private void reloadAccountInfo()
+        private void OnAccountChanged(object? sender, AccountChangedEventArgs e)
         {
-            //LogOut
-            if (AcoountInfo.ID == -1)
+            if (e.AccountId == -1)
             {
+                // Логика для выхода из аккаунта
                 SetLogginedInfoActive(false);
-                if (dataGridView1.DataSource.Equals(shop) == false)
-                GoToMainPage();
-                return;
+                authorized_label.Text = "Вы не авторизованы";
             }
-
-            RefreshSubsDataTable();
-            RefreshCartDataTable();
-            Random random = new Random();
-            string[] WelcomePhrases = new string[] { "Welcome", "Hello", "Nice to see you" };
-            authorized_label.Text = WelcomePhrases[random.Next(0,3)] +", "+ AcoountInfo.Name;
-
-            SetLogginedInfoActive(true);
+            else
+            {
+                // Логика для входа в аккаунт
+                SetLogginedInfoActive(true);
+                authorized_label.Text = $"Добро пожаловать, {e.AccountName}";
+                RefreshSubsDataTable();
+                RefreshCartDataTable();
+            }
         }
 
         private void SetLogginedInfoActive(bool state)
@@ -254,7 +242,7 @@ namespace Bookstore
             signOut_button.Visible = state;
             subs_linkLabel.Visible = state;
             cart_button.Enabled = true;
-;
+
             signIn_button.Visible = !state;
             reg_button.Visible = !state;
 
@@ -265,7 +253,7 @@ namespace Bookstore
 
         private void signOut_button_Click(object sender, EventArgs e)
         {
-            AcoountInfo.SignOut();
+            AccountInfo.SignOut();
         }
 
         private void signIn_button_Click(object sender, EventArgs e)
@@ -300,13 +288,13 @@ namespace Bookstore
 
         private void SetupSelectedRowUI()
         {
-            if (AcoountInfo.ID == -1)
+            if (AccountInfo.ID == -1)
                 return;
 
             if (dataGridView1.SelectedRows.Count == 0)
                 return;
 
-            if (dataGridView1.Rows[dataGridView1.SelectedRows[0].Index].Cells["Amount"].Value == null ||(int)dataGridView1.Rows[dataGridView1.SelectedRows[0].Index].Cells["Amount"].Value == 0)
+            if (dataGridView1.Rows[dataGridView1.SelectedRows[0].Index].Cells["Amount"].Value == null || (int)dataGridView1.Rows[dataGridView1.SelectedRows[0].Index].Cells["Amount"].Value == 0)
             {
                 addToCard_button.Enabled = false;
                 buy_button.Enabled = false;
@@ -341,7 +329,7 @@ namespace Bookstore
             if (dataGridView1.SelectedRows.Count == 0)
                 return;
             int bookID = (int)(dataGridView1.Rows[dataGridView1.SelectedRows[0].Index].Cells["ID"].Value);
-            string query = "INSERT INTO clientsSubs_table VALUES (" + AcoountInfo.ID + "," + bookID + ")";
+            string query = $"INSERT INTO clientsSubs_table VALUES ({AccountInfo.ID},{bookID})";
             bool needToRefreshData = MakeChangesInDB(query);
 
             if (needToRefreshData)
@@ -355,7 +343,7 @@ namespace Bookstore
             if (dataGridView1.SelectedRows.Count == 0)
                 return;
             int bookID = (int)(dataGridView1.Rows[dataGridView1.SelectedRows[0].Index].Cells["ID"].Value);
-            string query = "DELETE FROM clientsSubs_table WHERE ID_Client = " + AcoountInfo.ID + " AND ID_BOOKS = " + bookID;
+            string query = $"DELETE FROM clientsSubs_table WHERE ID_Client = {AccountInfo.ID} AND ID_BOOKS = {bookID}";
             bool needToRefreshData = MakeChangesInDB(query);
 
             if (needToRefreshData)
@@ -392,7 +380,7 @@ namespace Bookstore
         private void RemoveFromCart(object? sender, DataGridViewRowCancelEventArgs e)
         {
             int bookID = (int)(dataGridView1.Rows[e.Row.Index].Cells["ID_Book"].Value);
-            string query = "DELETE * FROM clientsCart_table WHERE [ID_Client] = " + AcoountInfo.ID + " AND [ID_Book] = " + bookID;
+            string query = $"DELETE * FROM clientsCart_table WHERE [ID_Client] = {AccountInfo.ID} AND [ID_Book] = {bookID}";
             bool needToRefreshData = MakeChangesInDB(query);
 
             if (needToRefreshData)
@@ -432,13 +420,12 @@ namespace Bookstore
 
             int bookID = (int)(dataGridView1.Rows[dataGridView1.SelectedRows[0].Index].Cells["ID"].Value);
 
-            string query = "SELECT Order_Amount FROM clientsCart_table WHERE [ID_Client] = " + AcoountInfo.ID + " AND [ID_Book] = " + bookID;
-            DataTable dt = new DataTable();
+            string query = "SELECT Order_Amount FROM clientsCart_table WHERE [ID_Client] = " + AccountInfo.ID + " AND [ID_Book] = " + bookID;
+            DataTable dt = ExecuteQuery(query);
 
-            FillTableFromDB(query, dt);
-            if(dt.Rows.Count == 0)
+            if (dt.Rows.Count == 0)
             {
-                query = "INSERT INTO clientsCart_table (ID_Client, ID_Book, Order_Amount) VALUES (" + AcoountInfo.ID + "," + bookID + ", 1)";
+                query = "INSERT INTO clientsCart_table (ID_Client, ID_Book, Order_Amount) VALUES (" + AccountInfo.ID + "," + bookID + ", 1)";
                 MakeChangesInDB(query);
             }
         }
@@ -450,16 +437,15 @@ namespace Bookstore
 
             int bookID = (int)(dataGridView1.Rows[dataGridView1.SelectedRows[0].Index].Cells["ID_Book"].Value);
 
-            string query = "SELECT Order_Amount FROM clientsCart_table WHERE [ID_Client] = " + AcoountInfo.ID + " AND [ID_Book] = " + bookID;
-            DataTable dt = new DataTable();
-            FillTableFromDB(query, dt);
+            string query = "SELECT Order_Amount FROM clientsCart_table WHERE [ID_Client] = " + AccountInfo.ID + " AND [ID_Book] = " + bookID;
+            DataTable dt = ExecuteQuery(query);
             if (dt.Rows.Count != 0)
             {
-                query = "INSERT INTO clientsOrders_table (ID_Client, ID_Book, Amount, Price) VALUES (" + AcoountInfo.ID + "," + bookID + ", " + dt.Rows[0]["Order_Amount"] + ", " + (int)(dataGridView1.Rows[dataGridView1.SelectedRows[0].Index].Cells["Price"].Value)+")";
+                query = $"INSERT INTO clientsOrders_table (ID_Client, ID_Book, Amount, Price) VALUES ({AccountInfo.ID},{bookID}, {dt.Rows[0]["Order_Amount"]}, {(int)(dataGridView1.Rows[dataGridView1.SelectedRows[0].Index].Cells["Price"].Value)})";
 
                 MakeChangesInDB(query);
 
-                query = "UPDATE tbl_data SET Amount = Amount - "+ dt.Rows[0]["Order_Amount"]+" WHERE [ID] = "+bookID;
+                query = "UPDATE tbl_data SET Amount = Amount - " + dt.Rows[0]["Order_Amount"] + " WHERE [ID] = " + bookID;
 
                 MakeChangesInDB(query);
 

@@ -98,10 +98,7 @@ F:\Projects\C#Net\Bookstore\Bookstore\bin\Debug\net6.0-windows\Bookstore.pdb
 F:\Projects\C#Net\Bookstore\Bookstore\bin\Debug\net6.0-windows\System.Data.OleDb.dll
 F:\Projects\C#Net\Bookstore\Bookstore\bin\Debug\net6.0-windows\runtimes\win\lib\net6.0\System.Data.OleDb.dll
 F:\Projects\C#Net\Bookstore\Bookstore\obj\Debug\net6.0-windows\Bookstore.csproj.AssemblyReference.cache
-F:\Projects\C#Net\Bookstore\Bookstore\obj\Debug\net6.0-windows\Bookstore.Form1.resources
-F:\Projects\C#Net\Bookstore\Bookstore\obj\Debug\net6.0-windows\Bookstore.LogIn.resources
 F:\Projects\C#Net\Bookstore\Bookstore\obj\Debug\net6.0-windows\Bookstore.Properties.Resources.resources
-F:\Projects\C#Net\Bookstore\Bookstore\obj\Debug\net6.0-windows\Bookstore.Reg.resources
 F:\Projects\C#Net\Bookstore\Bookstore\obj\Debug\net6.0-windows\Bookstore.SubscrubesForm.resources
 F:\Projects\C#Net\Bookstore\Bookstore\obj\Debug\net6.0-windows\Bookstore.csproj.GenerateResource.cache
 F:\Projects\C#Net\Bookstore\Bookstore\obj\Debug\net6.0-windows\Bookstore.GeneratedMSBuildEditorConfig.editorconfig
@@ -114,3 +111,6 @@ F:\Projects\C#Net\Bookstore\Bookstore\obj\Debug\net6.0-windows\refint\Bookstore.
 F:\Projects\C#Net\Bookstore\Bookstore\obj\Debug\net6.0-windows\Bookstore.pdb
 F:\Projects\C#Net\Bookstore\Bookstore\obj\Debug\net6.0-windows\Bookstore.genruntimeconfig.cache
 F:\Projects\C#Net\Bookstore\Bookstore\obj\Debug\net6.0-windows\ref\Bookstore.dll
+F:\Projects\C#Net\Bookstore\Bookstore\obj\Debug\net6.0-windows\Bookstore.LogInPage.resources
+F:\Projects\C#Net\Bookstore\Bookstore\obj\Debug\net6.0-windows\Bookstore.MainPage.resources
+F:\Projects\C#Net\Bookstore\Bookstore\obj\Debug\net6.0-windows\Bookstore.RegPage.resources

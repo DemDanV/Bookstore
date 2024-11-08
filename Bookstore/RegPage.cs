@@ -1,28 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿using System.Data;
 using System.Data.OleDb;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Bookstore
 {
-    public partial class Reg : Form
+    public partial class RegPage : Form
     {
         bool[] validated;
-        public Reg()
+        public RegPage()
         {
             InitializeComponent();
+            this.FormClosed += RegPage_FormClosed;
+
             reg_button.Validating += email_textBox_Validating;
             reg_button.Validating += name_textBox_Validating;
             reg_button.Validating += password_textBox_Validating;
             reg_button.Validating += repPassword_textBox_Validating;
 
             validated = new bool[4];
+        }
+
+        private void RegPage_FormClosed(object? sender, FormClosedEventArgs e)
+        {
+            this.FormClosed -= RegPage_FormClosed;
+
+            Program.ShowForm<MainPage>();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -34,34 +35,34 @@ namespace Bookstore
 
             string name = name_textBox.Text;
             string query = "INSERT INTO [clientsAcc_table] ([Name], [Email], [Password]) VALUES ('" + name + "', '" + email_textBox.Text + "', '" + password_textBox.Text + "')";
-            OleDbConnection DBConnection = new OleDbConnection(
+            using (OleDbConnection DBConnection = new OleDbConnection(
                     @"Provider=Microsoft.ACE.OLEDB.12.0;
                         Data Source=" + Environment.CurrentDirectory + "\\Books.accdb"
-                    );
-            OleDbCommand sqlcmd = new OleDbCommand(query, DBConnection);
-
-
-            DBConnection.Open();
-
-            if (sqlcmd.ExecuteNonQuery() == 1)
+                    ))
             {
-                query = "SELECT * FROM clientsAcc_table where Name = '" + name + "'";
-                sqlcmd = new OleDbCommand(query, DBConnection);
-                OleDbDataAdapter adapter = new OleDbDataAdapter(sqlcmd);
-                DataTable table = new DataTable();
-                adapter.Fill(table);
+                OleDbCommand sqlcmd = new OleDbCommand(query, DBConnection);
 
-                string g = table.Rows[0][0].ToString();
+                DBConnection.Open();
 
-                AcoountInfo.SignIn(int.Parse(table.Rows[0][0].ToString()), table.Rows[0][1].ToString());
-                Close();
+                if (sqlcmd.ExecuteNonQuery() == 1)
+                {
+                    query = "SELECT * FROM clientsAcc_table where Name = '" + name + "'";
+                    sqlcmd = new OleDbCommand(query, DBConnection);
+                    OleDbDataAdapter adapter = new OleDbDataAdapter(sqlcmd);
+                    DataTable table = new DataTable();
+                    adapter.Fill(table);
+
+                    string g = table.Rows[0][0].ToString();
+
+                    AccountInfo.SignIn(int.Parse(table.Rows[0][0].ToString()), table.Rows[0][1].ToString());
+                    Close();
+                }
+                else
+                {
+                    MessageBox.Show("Error. You are not registered");
+                }
+                DBConnection.Close();
             }
-            else
-            {
-                MessageBox.Show("Error. You are not registered");
-            }
-
-            DBConnection.Close();
         }
 
 
@@ -90,7 +91,7 @@ namespace Bookstore
             // Confirm that the email address string is not empty.
             if (emailAddress.Length == 0)
             {
-                errorMessage = "email address is required.";
+                errorMessage = "email address is required";
                 return false;
             }
 
@@ -142,9 +143,9 @@ namespace Bookstore
         public bool ValidName(string name, out string errorMessage)
         {
             // Confirm that the email address string is not empty.
-            if (name.Length == 0)
+            if (string.IsNullOrWhiteSpace(name))
             {
-                errorMessage = "name is required.";
+                errorMessage = "name is required";
                 return false;
             }
 
@@ -161,18 +162,23 @@ namespace Bookstore
 
         private static bool CheckDBValue(string name, string field)
         {
-            string query = "SELECT * FROM clientsAcc_table where " + field + " = '" + name + "'";
+            string query = $"SELECT * FROM clientsAcc_table where {field} = '{name}'";
             bool Rezerve;
-            OleDbConnection DBConnection = new OleDbConnection(
+            using (OleDbConnection DBConnection = new OleDbConnection(
                     @"Provider=Microsoft.ACE.OLEDB.12.0;
                     Data Source=" + Environment.CurrentDirectory + "\\Books.accdb"
-                    );
-            OleDbCommand sqlcmd = new OleDbCommand(query, DBConnection);
-            OleDbDataAdapter da = new OleDbDataAdapter(sqlcmd);
+                    ))
+            {
+                using (OleDbCommand sqlcmd = new OleDbCommand(query, DBConnection))
+                {
+                    OleDbDataAdapter da = new OleDbDataAdapter(sqlcmd);
 
-            DataTable table = new DataTable();
-            da.Fill(table);
-            Rezerve = table.Rows.Count > 0;
+                    DataTable table = new DataTable();
+                    da.Fill(table);
+                    Rezerve = table.Rows.Count > 0;
+                }
+            }
+
             return !Rezerve;
         }
 
@@ -200,15 +206,15 @@ System.ComponentModel.CancelEventArgs e)
         public bool ValidPassword(string pass, out string errorMessage)
         {
             // Confirm that the email address string is not empty.
-            if (pass.Length == 0)
+            if (string.IsNullOrWhiteSpace(pass))
             {
-                errorMessage = "password is required.";
+                errorMessage = "password is required";
                 return false;
             }
 
             if (pass.Length < 6)
             {
-                errorMessage = "password can't be so short.";
+                errorMessage = "password can't be so short";
                 return false;
             }
 
@@ -242,12 +248,12 @@ System.ComponentModel.CancelEventArgs e)
             // Confirm that the email address string is not empty.
             if (pass != password_textBox.Text)
             {
-                errorMessage = "passwords don't match";
+                errorMessage = "passwords doesn't match";
                 return false;
             }
             else if(pass.Length == 0)
             {
-                errorMessage = "password is required.";
+                errorMessage = "password is required";
                 return false;
             }
 
