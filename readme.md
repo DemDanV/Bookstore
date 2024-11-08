@@ -12,7 +12,7 @@ Bookstore - это приложение на WinForms, позволяющее у
 ## Установка
 
 ```bash
-git clone https://github.com/DemDanV/bookstore-management-system.git
+git clone https://github.com/DemDanV/bookstore.git
 cd Bookstore
 ```
 
